@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -50,6 +51,11 @@ namespace WebAPI.Controllers
             }
 
             return BadRequest(result.Message);
+        }
+        [Authorize]
+        [HttpGet("aa")]
+        public IActionResult A() {
+            return Ok("Selam");
         }
     }
 }
